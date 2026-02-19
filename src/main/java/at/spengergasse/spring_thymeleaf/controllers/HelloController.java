@@ -12,6 +12,7 @@ public class HelloController {
 
     @GetMapping("")
     public  String index(Model model) {
+        //add date to model
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy");
         model.addAttribute("today", LocalDate.now().format(dtf));
         return "index";
