@@ -1,0 +1,30 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Medication List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>name</th>
+            <th>expiryDate</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="m : ${medications}">
+             <td th:text="${m.name}"></td>
+             <td th:text="${m.expiryDate}"></td>
+        </tr>
+        </tbody>
+
+    </table>
+
+    <p>
+        <a href="/medication/add">new medication</a>
+    </p>
+</div>
+</body>
+</html>
