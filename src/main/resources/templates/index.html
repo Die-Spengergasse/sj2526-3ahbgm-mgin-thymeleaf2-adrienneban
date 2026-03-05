@@ -2,15 +2,20 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Greeting</title>
+    <title>Medication List - Home</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 <body>
 <div class="container">
-    <h1>Hallo</h1>
-    Heutiges Datum: <span th:text="${today}"></span>
+    <h1>Welcome to your Medication List!</h1>
     <div>
-        <a href="/medication/list">Medication list</a>
+        Today's date: <span th:text="${today}"></span>
+    </div>
+
+    <div style="margin-top: 20px;">
+        <a href="/medication/list">
+            <button class="btn btn-primary btn-sm">Medication List</button>
+        </a>
     </div>
 </div>
 </body>

@@ -5,25 +5,47 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 <body>
+
 <div class="container">
+    <h2>Medication List</h2>
     <table class="table">
         <thead>
         <tr>
             <th>name</th>
             <th>expiryDate</th>
+            <th>status</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="m : ${medications}">
              <td th:text="${m.name}"></td>
              <td th:text="${m.expiryDate}"></td>
+             <td th:if="${m.expiryDate < T(java.time.LocalDate).now()}">expired</td>
+             <td th:if="${m.expiryDate >= T(java.time.LocalDate).now()}">valid</td>
+
+            <td>
+                <a th:href="@{/medication/delete(id=${m.id})}" class="btn btn-danger btn-sm">Delete</a>
+                <a th:href="@{/medication/edit(id=${m.id})}" class="btn btn-primary btn-sm">Edit</a>
+            </td>
+
+
+
         </tr>
         </tbody>
 
     </table>
 
     <p>
-        <a href="/medication/add">new medication</a>
+        <a href="/medication/add">
+            <button class="btn btn-primary btn-sm">Add Medication</button>
+        </a>
+
+        <a href="/medication/deleteExpired">
+            <button class="btn btn-primary btn-sm">Delete expired medication</button>
+        </a>
+        <a>
+            <button onclick="window.location.href='/';" class="btn btn-primary btn-sm">Back to Home</button>
+        </a>
     </p>
 </div>
 </body>

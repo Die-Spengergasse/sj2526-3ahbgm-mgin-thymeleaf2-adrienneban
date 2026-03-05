@@ -15,6 +15,10 @@ public class Medication {
     private String name;
     private LocalDate expiryDate;
 
+    public int getId() {
+        return id;
+    }
+
     public String getName() {
         return name;
     }
